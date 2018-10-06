@@ -88,10 +88,10 @@ void SuperLong::Power(SuperLong l_base, SuperLong l_power)
 
 	SuperLong temp;
 	SuperLong halfTmp = l_power;
-	halfTmp.half();
+    int remainder = halfTmp.half();
 	temp.Power(l_base, halfTmp.m_number);
 
-	if (l_power.m_number.back() % 2 == 0) {
+    if (remainder == 0) {
 		(*this).Multiply(l_base, l_base);
 	}
 	else {
