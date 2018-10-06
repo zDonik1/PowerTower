@@ -29,6 +29,14 @@ int main()
         system("pause");
     }
 
+    // test half
+    {
+        SuperLong a(145);
+        a.half();
+        std::cout << a.ToString() << std::endl;
+        system("pause");
+    }
+
     // test power
     {
         SuperLong a(2);
@@ -39,13 +47,6 @@ int main()
         system("pause");
     }
 
-	// test half
-	{
-		SuperLong a(145);
-		a.half();
-		std::cout << a.ToString() << std::endl;
-		system("pause");
-	}
 
     SuperLong answer;
 	std::vector<int> powers;  //For saving the powers entered
