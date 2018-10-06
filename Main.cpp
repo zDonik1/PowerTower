@@ -32,8 +32,11 @@ int main()
     // test half
     {
         SuperLong a(145);
-        a.half();
-        std::cout << a.ToString() << std::endl;
+        int remainder = a.half();
+        std::cout << a.ToString() << " " << remainder << std::endl;
+        a.FromInt(56);
+        remainder = a.half();
+        std::cout << a.ToString() << " " << remainder << std::endl;
         system("pause");
     }
 
