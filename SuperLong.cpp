@@ -82,7 +82,7 @@ void SuperLong::Power(SuperLong l_base, SuperLong l_power)
 {
 	m_number.clear();
 	if (l_power.m_number.size() == 1 && l_power.m_number.back() == 0) {
-		(*this).Save(1);
+        (*this).FromInt(1);
         return;
 	}
 
