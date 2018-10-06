@@ -59,7 +59,6 @@ int main()
     }
 
 
-    SuperLong answer;
 	std::vector<int> powers;  //For saving the powers entered
 	char enteredCharacter;
 	int integer;
@@ -73,13 +72,15 @@ int main()
 		if (enteredCharacter == '!') {
 			break;
 		}
-		integer = enteredCharacter - 48;  //Converting character to integer
+        integer = enteredCharacter - '0';  //Converting character to integer
 		powers.emplace_back(integer);
 	} 
 
 	//Calculate the power of another power :)
-    answer.FromInt(powers.back());
-    for (auto itr = powers.rbegin(); itr != powers.rend(); ++itr) {
+    auto itr = powers.rbegin();
+    SuperLong answer(*itr);
+    ++itr;
+    for (; itr != powers.rend(); ++itr) {
         SuperLong base(*itr);
         answer.Power(base, answer);
 		std::cout << "Debug: answer.ToString() = " << answer.ToString() << std::endl;
