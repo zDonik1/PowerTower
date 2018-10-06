@@ -26,6 +26,3 @@ public:
 private:
 	std::vector<int> m_number;
 };
-
-//Extra function identifiers
-SuperLong IntToSL(int l_num);
