@@ -127,12 +127,6 @@ void SuperLong::FillZero(std::size_t numberOfPlaces)
 	}
 }
 
-//Saves the argument into the object
-void SuperLong::Save(int l_num)
-{
-    m_number = IntToSL(l_num).m_number;
-}
-
 void SuperLong::FromInt(int l_num)
 {
     m_number.clear(); // Important!
@@ -160,24 +154,4 @@ std::string SuperLong::ToString()
 std::vector<int> SuperLong::GetVecNumber()
 {
 	return m_number;
-}
-
-//+-----Related fucntions-----+
-//Converts a number given in the argument and returns a SuperLong
-SuperLong IntToSL(int l_num)
-{
-	int remainder;
-	SuperLong answer;
-	while (l_num != 0) {
-		remainder = l_num % 10;
-		l_num /= 10;
-
-        // BUG: there is problem! answer.GetVecNumber() returns temporary vector,
-        // copied from answer's vector which will be discarded then.
-        // GetVecNumber() shoud be declared as:
-        // std::vector<int> &SuperLong::GetVecNumber() - in this case there will be
-        // returned reference to the answer's vector, and it could be modified
-		answer.GetVecNumber().emplace_back(remainder);
-	}
-	return answer;
 }

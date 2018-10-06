@@ -70,9 +70,10 @@ int main()
 	} 
 
 	//Calculate the power of another power :)
-	answer.Save(powers.back());
+    answer.FromInt(powers.back());
     for (auto itr = powers.rbegin(); itr != powers.rend(); ++itr) {
-        answer.Power(IntToSL(*itr), answer);
+        SuperLong base(*itr);
+        answer.Power(base, answer);
 		std::cout << "Debug: answer.ToString() = " << answer.ToString() << std::endl;
 	}
 
