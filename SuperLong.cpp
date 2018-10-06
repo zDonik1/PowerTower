@@ -101,7 +101,7 @@ void SuperLong::Power(SuperLong l_base, SuperLong l_power)
 }
 
 //Halves the number inside m_number
-void SuperLong::half()
+int SuperLong::half()
 {
 	std::vector<int> temp = m_number;
 	m_number.clear();
@@ -115,6 +115,8 @@ void SuperLong::half()
 	while (m_number.size() > 1 && m_number.back() == 0) {
 		m_number.pop_back();
 	}
+
+    return remainder;
 }
 
 //Fills up zeroes into the vector by the number of places mentioned

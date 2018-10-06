@@ -14,7 +14,7 @@ public:
 	void Add(SuperLong l_num1, SuperLong l_num2);
 	void Multiply(SuperLong l_num1, SuperLong l_num2);
 	void Power(SuperLong l_base, SuperLong l_power);
-	void half();
+	int half();
     void FillZero(std::size_t numberOfPlaces);
 
 	void Save(int l_num);
