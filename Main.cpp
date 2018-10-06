@@ -47,6 +47,14 @@ int main()
         SuperLong c;
         c.Power(a, b);
         std::cout << c.ToString() << std::endl;
+    }
+    // test power
+    {
+        SuperLong a(5);
+        SuperLong b(9);
+        SuperLong c;
+        c.Power(a, b);
+        std::cout << c.ToString() << std::endl;
         system("pause");
     }
 
