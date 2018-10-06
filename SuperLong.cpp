@@ -77,27 +77,33 @@ void SuperLong::Multiply(SuperLong l_num1, SuperLong l_num2)
     }
 }
 
+SuperLong powerRecursive(SuperLong l_base, SuperLong l_power)
+{
+    auto vec = l_power.GetVecNumber();
+    if (vec.size() == 1 && vec.back() == 0) {
+        return SuperLong(1);
+    }
+
+    int remainder = l_power.half();
+    SuperLong x = powerRecursive(l_base, l_power);
+
+    SuperLong result;
+    if (remainder == 0) {
+        result.Multiply(x, x);
+    }
+    else {
+        SuperLong tmpResult;
+        tmpResult.Multiply(x, x);
+        result.Multiply(l_base, tmpResult);
+    }
+
+    return result;
+}
+
 //Finds the power of a base and gives the answer to the object
 void SuperLong::Power(SuperLong l_base, SuperLong l_power)
 {
-	m_number.clear();
-	if (l_power.m_number.size() == 1 && l_power.m_number.back() == 0) {
-        (*this).FromInt(1);
-        return;
-	}
-
-	SuperLong temp;
-	SuperLong halfTmp = l_power;
-    int remainder = halfTmp.half();
-	temp.Power(l_base, halfTmp.m_number);
-
-    if (remainder == 0) {
-		(*this).Multiply(l_base, l_base);
-	}
-	else {
-		temp.Multiply(temp, temp);
-		(*this).Multiply(temp, l_base);
-	}
+    *this = powerRecursive(l_base, l_power);
 }
 
 //Halves the number inside m_number
